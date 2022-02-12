@@ -5,7 +5,8 @@ import { getItem } from '../../redux/actions/postsActions'
 import BasicModal from '../common/BasicModal'
 import EllipsisTypography from '../common/EllipsisTypography'
 
-const ModalShowItem = forwardRef((props, ref) => {
+// eslint-disable-next-line react/display-name
+const ModalShowItem = forwardRef(({ ...props }, ref) => {
 	const [visible, setVisible] = useState(false)
 	const [item, setItem] = useState({})
 
@@ -23,7 +24,7 @@ const ModalShowItem = forwardRef((props, ref) => {
 	}))
 
 	return (
-		<BasicModal open={visible} handleClose={handleModalClose}>
+		<BasicModal open={visible} handleClose={handleModalClose} {...props}>
 			<ImageListItem
 				component={Box}
 				borderRadius={3}

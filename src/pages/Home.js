@@ -55,7 +55,9 @@ function Home() {
 						marginY={3}
 					>
 						<Pagination
-							count={data.posts.length / data.perPage}
+							count={Number(
+								(data.posts.length / data.perPage).toFixed()
+							)}
 							onChange={handlePaginate}
 							renderItem={item => (
 								<PaginationItem

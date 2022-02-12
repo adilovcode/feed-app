@@ -2,10 +2,15 @@ import { getPostsApi } from '../../api/postsApi'
 import { setPosts } from '../actionCreators/postsActionCreators'
 import { store } from '../store'
 
+// Better to use midllewares in the future
 export const getPostsAsync = () => {
-	getPostsApi().then(({ data }) => {
-		store.dispatch(setPosts(data))
-	})
+	getPostsApi()
+		.then(({ data }) => {
+			store.dispatch(setPosts(data))
+		})
+		.catch(e => {
+			console.log(e)
+		})
 }
 
 export const filter = () => {
